@@ -12,17 +12,17 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Theme.of(context).colorScheme.onPrimary,
         title: Text("Notes Homepage", style: TextStyle()),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AddScreen()),
-              );
-            },
-            icon: Icon(Icons.add),
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     onPressed: () {
+        //       Navigator.push(
+        //         context,
+        //         MaterialPageRoute(builder: (context) => AddScreen()),
+        //       );
+        //     },
+        //     icon: Icon(Icons.add),
+        //   ),
+        // ],
       ),
       body: const Padding(padding: EdgeInsets.all(8), child: NotesGrid()),
     );

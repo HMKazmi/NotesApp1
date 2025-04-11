@@ -13,8 +13,8 @@ class AddScreen extends StatefulWidget {
 }
 
 class _AddScreenState extends State<AddScreen> {
-  late TextEditingController _titleController;
-  late TextEditingController _contentController;
+  TextEditingController _titleController=TextEditingController();
+  TextEditingController _contentController=TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   Future<bool> _showDiscardDialog() async {
