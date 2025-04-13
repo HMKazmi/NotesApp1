@@ -104,8 +104,16 @@ class NoteTile extends StatelessWidget {
                       'Are you sure you want to delete this note?',
                     ),
                     actions: [
-                      TextButton(
+                      ElevatedButton(
                         onPressed: () => Navigator.pop(context),
+                                                            style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          Theme.of(context).colorScheme.primary,
+                                      foregroundColor:
+                                          Theme.of(
+                                            context,
+                                          ).colorScheme.onPrimary,
+                                    ),
                         child: const Text('CANCEL'),
                       ),
                       TextButton(

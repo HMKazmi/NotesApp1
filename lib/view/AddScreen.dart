@@ -16,6 +16,12 @@ class _AddScreenState extends State<AddScreen> {
   TextEditingController _titleController=TextEditingController();
   TextEditingController _contentController=TextEditingController();
   final _formKey = GlobalKey<FormState>();
+@override
+  void initState() {
+    _titleController.text=widget.note!.title;
+    _contentController.text=widget.note!.content;
+    super.initState();
+  }
 
   Future<bool> _showDiscardDialog() async {
     return await showDialog<bool>(
@@ -78,6 +84,7 @@ class _AddScreenState extends State<AddScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     return WillPopScope(
       onWillPop: _showDiscardDialog,
       child: GestureDetector(
@@ -92,7 +99,7 @@ class _AddScreenState extends State<AddScreen> {
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
-              behavior: HitTestBehavior.opaque, // Important
+              behavior: HitTestBehavior.opaque, 
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   return SingleChildScrollView(
@@ -111,6 +118,7 @@ class _AddScreenState extends State<AddScreen> {
                             children: [
                               TextFormField(
                                 controller: _titleController,
+                                // initialValue: _titleController.text,
                                 maxLength: 100,
                                 decoration: const InputDecoration(
                                   labelText: "Title",
