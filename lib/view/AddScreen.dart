@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app1/core/theme_notifier.dart';
 import 'package:notes_app1/data/note_model.dart';
 import 'package:notes_app1/view_model/note_view_model.dart';
 import 'package:provider/provider.dart';
 
 class AddScreen extends StatefulWidget {
-
   final Note? note;
   const AddScreen({super.key, this.note});
 
@@ -13,13 +13,13 @@ class AddScreen extends StatefulWidget {
 }
 
 class _AddScreenState extends State<AddScreen> {
-  TextEditingController _titleController=TextEditingController();
-  TextEditingController _contentController=TextEditingController();
+  TextEditingController _titleController = TextEditingController();
+  TextEditingController _contentController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-@override
+  @override
   void initState() {
-    _titleController.text=widget.note!.title;
-    _contentController.text=widget.note!.content;
+    _titleController.text = widget.note!.title;
+    _contentController.text = widget.note!.content;
     super.initState();
   }
 
@@ -51,17 +51,17 @@ class _AddScreenState extends State<AddScreen> {
         false;
   }
 
-@override
+  @override
   void dispose() {
     _titleController.dispose();
     _contentController.dispose();
     super.dispose();
   }
-  
+
   void _saveNote() {
     if (_formKey.currentState!.validate()) {
       final viewModel = Provider.of<NoteViewModel>(context, listen: false);
-      
+
       if (widget.note == null) {
         // Create new note
         viewModel.addNote(
@@ -76,15 +76,13 @@ class _AddScreenState extends State<AddScreen> {
           _contentController.text.trim(),
         );
       }
-      
+
       Navigator.pop(context);
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
-    
     return WillPopScope(
       onWillPop: _showDiscardDialog,
       child: GestureDetector(
@@ -95,15 +93,27 @@ class _AddScreenState extends State<AddScreen> {
             backgroundColor: Theme.of(context).colorScheme.primary,
             foregroundColor: Theme.of(context).colorScheme.onPrimary,
             title: const Text("Add new note"),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.brightness_6),
+                onPressed: () {
+                  // Toggle theme mode when the button is pressed
+                  Provider.of<ThemeNotifier>(
+                    context,
+                    listen: false,
+                  ).toggleTheme();
+                },
+              ),
+            ],
           ),
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
-              behavior: HitTestBehavior.opaque, 
+              behavior: HitTestBehavior.opaque,
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   return SingleChildScrollView(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.fromLTRB(16,24,16,16),
                     keyboardDismissBehavior:
                         ScrollViewKeyboardDismissBehavior.onDrag,
                     child: ConstrainedBox(
