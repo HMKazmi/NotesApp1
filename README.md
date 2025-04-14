@@ -5,15 +5,17 @@ A beautiful simple notes app built with Flutter using MVVM architecture, Provide
 ## 📱 Screenshots
 
 ### Home Screen (Empty)
-![Home Screen - No Notes]((https://github.com/HMKazmi/NotesApp1/blob/master/app_ss/without.jpg))
+![Home Screen - No Notes]((https://github.com/HMKazmi/NotesApp1/blob/master/app_ss/without_notes.jpg))
 *getting started? Add your first note!*
 
 ### Home Screen (With Notes)
-![Home Screen - With Notes](https://github.com/HMKazmi/NotesApp1/blob/master/app_ss/with_notes.jpg)
+![Home Screen - With Notes (Dark Mode)](https://github.com/HMKazmi/NotesApp1/blob/master/app_ss/with_notes.jpg)
+![Home Screen - With Notes (Light Mode)](https://github.com/HMKazmi/NotesApp1/blob/master/app_ss/with_notes_light.jpg)
 *Keep all your thoughts organized in one place*
 
 ### Add/Edit Note Screen
-![Add/Edit Note Screen](https://github.com/HMKazmi/NotesApp1/blob/master/app_ss/add_screen.jpg)
+![Add/Edit Note Screen (Dark Mode)](https://github.com/HMKazmi/NotesApp1/blob/master/app_ss/add_screen.jpg)
+![Add/Edit Note Screen (Light Mode)](https://github.com/HMKazmi/NotesApp1/blob/master/app_ss/add_screen_light.jpg)
 *Simple interface for capturing your ideas*
 
 ## 🚀 Features
@@ -21,7 +23,7 @@ A beautiful simple notes app built with Flutter using MVVM architecture, Provide
 - Create, read, update, and delete notes
 - Clean and intuitive UI
 - Persistent storage with SQLite
-- Dark mode support
+- Dark/Light mode support
 - Sort notes by last updated
 
 ## 🏗️ Architecture
